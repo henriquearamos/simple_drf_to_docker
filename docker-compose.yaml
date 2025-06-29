@@ -1,0 +1,81 @@
+version: "3.8"
+
+services:
+  nginx:
+    build:
+      dockerfile: ./docker/nginx.dockerfile
+      context: .
+    image: haramos/nginx_api:v1
+    container_name: nginx
+    ports:
+      - "80:80"
+    networks:
+      - backend
+    depends_on:
+      - api1
+      - api2
+      - api3
+
+  db:
+    build:
+      dockerfile: ./docker/db.dockerfile
+      context: .
+    image: haramos/db:v1
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    container_name: db
+    ports:
+      - "5432"
+    networks:
+      - backend
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+
+  api1:
+    build:
+      dockerfile: ./docker/api.dockerfile
+      context: .
+    image: haramos/api:v1
+    container_name: api1
+    ports:
+      - "8000"
+    networks:
+      - backend
+    depends_on:
+      - db
+
+  api2:
+    build:
+      dockerfile: ./docker/api.dockerfile
+      context: .
+    image: haramos/api:v1
+    container_name: api2
+    ports:
+      - "8000"
+    networks:
+      - backend
+    depends_on:
+      - db
+
+  api3:
+    build:
+      dockerfile: ./docker/api.dockerfile
+      context: .
+    image: haramos/api:v1
+    container_name: api3
+    ports:
+      - "8000"
+    networks:
+      - backend
+    depends_on:
+      - db
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  pgdata:
+
