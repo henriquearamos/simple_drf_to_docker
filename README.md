@@ -11,7 +11,7 @@ DB_HOST=db
 DB_PORT=5432
 ```
 
-### Execução
+## Execução
 
 Para execução dos containers
 
