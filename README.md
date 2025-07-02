@@ -1,16 +1,15 @@
-### Arquivo .env
+## Arquivo .env
 
-`SECRET_KEY=chave_secreta_django`
+Esquemático do arquivo .env usado neste projeto
 
-`DB_NAME=nome_do_banco`
-
-`DB_USER=usuario_banco`
-
-`DB_PASSWORD=senha_banco`
-
-`DB_HOST="db"`
-
-`DB_PORT="5432"`
+```bash
+SECRET_KEY=chave_secreta_django
+DB_NAME=nome_do_banco
+DB_USER=usuario_do_banco
+DB_PASSWORD=senha_do_banco
+DB_HOST=db
+DB_PORT=5432
+```
 
 ### Execução
 
