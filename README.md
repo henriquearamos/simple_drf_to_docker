@@ -1,3 +1,7 @@
+## Apresentação
+
+Este projeto busca demonstrar o funcionamento de um API desenvolvida em DRF que utiliza de um container NGINX para realizar o balanço de carga entre 3 containers contendo a aplicação DRF, todos os containers se comunicam com um container que contém um DB em Postgres. Uma simples demonstração de como se opera aplicações em microserviços.
+
 ## Arquivo .env
 
 Esquemático do arquivo .env usado neste projeto
