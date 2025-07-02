@@ -36,3 +36,5 @@ Apagar containers e volumes
    docker-compose down -v  
 ```
 
+## Sugestões
+Até o momento não consegui aplicar o padrão de estilos quando acessado o admin via WEB. 
